@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -12,7 +14,7 @@ class ContactController extends Controller
         return view('contact.index');
     }
     
-    // Process the contact form submission (optional)
+    // Process the contact form submission and send an email
     public function sendContact(Request $request)
     {
         // Validate the request data
@@ -22,8 +24,17 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Here, you could send an email, save the contact message, etc.
-        
+        // Prepare the details for the email
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ];
+
+        // Send the email
+        Mail::to('recipient@example.com')->send(new ContactMail($details));
+
+        // Redirect back with a success message
         return back()->with('success', 'Your message has been sent successfully!');
     }
 }
