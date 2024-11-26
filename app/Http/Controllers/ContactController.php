@@ -3,38 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactFormMail;
 
 class ContactController extends Controller
 {
-    // Display the contact form
-    public function index()
+    public function showForm()
     {
         return view('contact.index');
     }
-    
-    // Process the contact form submission and send an email
-    public function sendContact(Request $request)
+
+    public function sendEmail(Request $request)
     {
-        // Validate the request data
-        $request->validate([
+        // Validate the form data
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'message' => 'required|string',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|min:10',
         ]);
 
-        // Prepare the details for the email
-        $details = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'message' => $request->message,
-        ];
-
-        // Send the email
-        Mail::to('recipient@example.com')->send(new ContactMail($details));
-
-        // Redirect back with a success message
-        return back()->with('success', 'Your message has been sent successfully!');
+        // Send email
+        try {
+            Mail::to('selkiechocolate@gmail.com')->send(new ContactFormMail($validated));
+            return redirect()->route('contact.form')->with('status', 'Your message has been sent!');
+        } catch (\Exception $e) {
+            return redirect()->route('contact.form')->with('status', 'There was an error sending your message. Please try again later.');
+        }
     }
 }
