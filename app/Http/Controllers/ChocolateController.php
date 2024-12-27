@@ -2,37 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\ChocolateData;
 use Illuminate\Http\Request;
-use App\Models\Chocolate;
 
 class ChocolateController extends Controller
 {
-    // Display the homepage
+    use ChocolateData;
+
     public function index()
     {
         return view('welcome');
     }
 
-    // Display the list of chocolates
     public function showChocolates()
     {
-        $chocolates = Chocolate::all();
+        $chocolates = $this->getChocolates();
         return view('chocolates.index', compact('chocolates'));
     }
 
-    // Fetch details of a specific chocolate by ID and return as JSON
     public function getChocolateDetails($id)
     {
-        // Find the chocolate by ID
-        $chocolate = Chocolate::find($id);
+        $chocolates = $this->getChocolates();
+        $chocolate = collect($chocolates)->firstWhere('id', $id);
 
-        // Check if the chocolate exists and return its details
         if ($chocolate) {
-            return response()->json([
-                'name' => $chocolate->name,
-                'description' => $chocolate->description,
-                'price' => $chocolate->price,
-            ]);
+            return response()->json($chocolate);
         } else {
             return response()->json(['error' => 'Chocolate not found'], 404);
         }

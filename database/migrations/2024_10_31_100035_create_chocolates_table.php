@@ -13,6 +13,7 @@ class CreateChocolatesTable extends Migration
             $table->string('name');
             $table->text('description');  // Added description field
             $table->decimal('price', 8, 2);
+            $table->string('image')->nullable(); // Image field for storing the file path
             $table->timestamps();
         });
     }

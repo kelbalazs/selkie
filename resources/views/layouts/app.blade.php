@@ -24,6 +24,11 @@
                 <li class="nav-item"><a class="nav-link" href="/chocolates">Chocolates</a></li>
                 <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+                <!-- View Cart Button -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('cart.view') }}">View Cart</a>
+                </li>
             </ul>
         </div>
     </nav>
