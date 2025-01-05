@@ -47,7 +47,7 @@
         .chocolates-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 10px;
             justify-content: center;
             margin-top: 20px;
         }
