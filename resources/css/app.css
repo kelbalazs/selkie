@@ -1,3 +1,159 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #fdfbf9;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #3c1518 !important;
+}
+
+.nav-link {
+    color: #5c2a2d !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #8b4513 !important;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #fff !important;
+    padding: 1rem 2rem;
+}
+
+.cart-container {
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-container:hover {
+    background-color: rgba(139, 69, 19, 0.1);
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    color: #5c2a2d !important;
+    text-decoration: none;
+}
+
+.cart-icon i {
+    font-size: 1.3rem;
+    margin-right: 8px;
+}
+
+.cart-text {
+    font-size: 0.9rem;
+    margin-right: 4px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #8b4513;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    transform: translate(25%, -25%);
+}
+
+footer {
+    background-color: #3c1518;
+    color: #fff;
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+    opacity: 0.8;
+}
+
+.footer a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 0.8;
+}
+
+.announcement-bar {
+    background-color: #f8e5b9;
+    border-bottom: 1px solid #e9d5a7;
+}
+
+.search-icon {
+    font-size: 1.2rem;
+    color: #5c2a2d;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: #8b4513;
+}
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.btn-newsletter {
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-newsletter:hover {
+    background-color: #6b3410;
+    color: white;
+}
+
+@font-face {
+    font-family: 'Aquatico';
+    src: url('/fonts/Aquatico-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aquatico';
+    src: url('/fonts/Aquatico-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aquatico';
+    src: url('/fonts/Aquatico-LightOblique.otf') format('opentype');
+    font-weight: 300;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'Aquatico';
+    src: url('/fonts/Aquatico-Oblique.otf') format('opentype');
+    font-weight: normal;
+    font-style: oblique;
+}
+
+
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Aquatico', sans-serif;
+}

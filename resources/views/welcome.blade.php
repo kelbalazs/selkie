@@ -2,9 +2,13 @@
 
 @section('content')
     <div class="hero-section" style="text-align: center; padding: 50px;">
-        <h1>Welcome to the Selkie Chocolates!</h1>
-        <p>Explore our delicious range of handcrafted chocolates, made with love and the finest ingredients.</p>
-    </div>
+    <!-- Picture -->
+    <img src="images/logos/Selkie Logo_Foka.png" alt="Selkie Chocolates" style="width: 150px; height: auto; margin-bottom: 20px;">
+    
+    <!-- Heading and Text -->
+    <h1>Welcome to Selkie Chocolates!</h1>
+    <p>Explore our delicious range of handcrafted chocolates, made with love and the finest ingredients.</p>
+</div>
 
 
 
